@@ -1,0 +1,20 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+<div id="content-main">
+<!-- Agency Command Center Section -->
+<div style="background: var(--body-bg, #fff); border: 1px solid var(--border-color, #ccc); padding: 25px; border-radius: 8px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; border-left: 6px solid var(--primary, #417690); box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: background 0.3s ease;">
+<div>
+<h2 style="margin: 0; font-size: 1.6rem; color: var(--body-fg, #333); font-weight: 700;">Agency Command Center</h2>
+<p style="margin: 8px 0 0 0; color: var(--body-quiet-color, #666); font-size: 1.05rem; line-height: 1.4;">Verify all cat recruitment and mission deployment protocols with a single click.</p>
+</div>
+<a href="/api/run-pytest/" style="background: var(--primary, #417690); padding: 14px 28px; color: var(--primary-fg, #fff); text-decoration: none; font-weight: 700; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s ease, opacity 0.2s ease; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.opacity='0.9'; this.style.transform='translateY(-1px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateY(0)'">
+Run All Tests
+</a>
+</div>
+
+    {{ block.super }}
+</div>
+
+
+{% endblock %}
