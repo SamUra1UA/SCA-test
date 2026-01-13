@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "8b23f9a1-7c9d-4e2b-a5f1-8c3d2e1a4f5b",
+		"name": "Spy Cat Agency (SCA)",
+		"description": "Collection for managing cats, missions, and targets for the SCA. Make sure your local server is running at http://127.0.0.1:8000.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cats",
+			"item": [
+				{
+					"name": "List All Cats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/cats/",
+							"host": ["{{base_url}}"],
+							"path": ["api", "cats", ""]
+						}
+					}
+				},
+				{
+					"name": "Recruit New Cat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Agent Whiskers\",\n    \"years_of_experience\": 5,\n    \"breed\": \"Siberian\",\n    \"salary\": \"5000.00\"\n}",
+							"options": {
+								"json": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/cats/",
+							"host": ["{{base_url}}"],
+							"path": ["api", "cats", ""]
+						}
+					}
+				},
+				{
+					"name": "Update Cat Salary",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"salary\": \"6000.00\"\n}",
+							"options": {
+								"json": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/cats/1/",
+							"host": ["{{base_url}}"],
+							"path": ["api", "cats", "1", ""]
+						}
+					}
+				},
+				{
+					"name": "Delete Cat",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/cats/1/",
+							"host": ["{{base_url}}"],
+							"path": ["api", "cats", "1", ""]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Missions",
+			"item": [
+				{
+					"name": "Create Mission with Targets",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"targets\": [\n        {\n            \"name\": \"Infiltrate Kitchen\",\n            \"country\": \"Household\",\n            \"notes\": \"Check for premium tuna.\"\n        },\n        {\n            \"name\": \"Surveil Laser Pointer\",\n            \"country\": \"Living Room\",\n            \"notes\": \"High-velocity red dot detection.\"\n        }\n    ]\n}",
+							"options": {
+								"json": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/missions/",
+							"host": ["{{base_url}}"],
+							"path": ["api", "missions", ""]
+						}
+					}
+				},
+				{
+					"name": "List All Missions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/missions/",
+							"host": ["{{base_url}}"],
+							"path": ["api", "missions", ""]
+						}
+					}
+				},
+				{
+					"name": "Assign Cat to Mission",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cat_id\": 1\n}",
+							"options": {
+								"json": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/missions/1/assign_cat/",
+							"host": ["{{base_url}}"],
+							"path": ["api", "missions", "1", "assign_cat", ""]
+						}
+					}
+				},
+				{
+					"name": "Delete Mission",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/missions/1/",
+							"host": ["{{base_url}}"],
+							"path": ["api", "missions", "1", ""]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Targets",
+			"item": [
+				{
+					"name": "Update Target Notes",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"notes\": \"Tuna found. Mission critical progress.\"\n}",
+							"options": {
+								"json": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/targets/1/",
+							"host": ["{{base_url}}"],
+							"path": ["api", "targets", "1", ""]
+						}
+					}
+				},
+				{
+					"name": "Mark Target Complete (Freeze)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"is_completed\": true\n}",
+							"options": {
+								"json": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/targets/1/",
+							"host": ["{{base_url}}"],
+							"path": ["api", "targets", "1", ""]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000"
+		}
+	]
+}
